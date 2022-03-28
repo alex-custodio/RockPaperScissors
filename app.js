@@ -9,17 +9,31 @@ const rock_div = document.getElementById("r")
 const paper_div = document.getElementById("p")
 const scissors_div = document.getElementById("s")
 
-// game system
 
-function win(){
-    userScore++;
+// convert choice char into string
+function charToWord(word){
+    if (word === "r"){
+        return word = "Rock"
+    } else if (word === "p"){
+        return word = "Paper"
+    } else if (word === "s"){
+        return word = "Scissors"
+    }
+}
+// game system
+function win(userChoice, compChoice){
+    userScore++
     userScore_span.innerHTML = userScore
+    result_div.innerHTML = `${charToWord(userChoice)} vence ${charToWord(compChoice)}`
 }
 function lose(){
-    compScore++;
+    compScore++
     compScore_span.innerHTML = compScore
+    result_div.innerHTML = `${charToWord(compChoice)} vence ${charToWord(userChoice)}`
 }
-function draw(){}
+function draw(){
+    result_div.innerHTML = "Empate"
+}
 
 function game(userChoice){
     choicesList = ["r", "p", "s"]
@@ -29,18 +43,18 @@ function game(userChoice){
         case "rs":
         case "sp":
         case "pr":
-            win()
+            win(userChoice, compChoice)
             break
         case "sr":
         case "ps":
         case "rp":
-            lose()
+            lose(userChoice, compChoice)
             break
         case "rr":
         case "pp":
         case "ss":
             draw()
-            break
+            
     }
 }
 
