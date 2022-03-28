@@ -1,13 +1,15 @@
-<DOCTYPE html>
+<!DOCTYPE html>
 
-<html lang="en">
-
+<html lang="pt-br">
     <head>
-        <title>Rock Paper Scissors</title>
+        <title>
+            Rock Paper Scissors
+        </title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
-    </head>
+        <script src="app.js" defer></script>
+    </head> 
 
     <body>
         <header>
@@ -19,37 +21,28 @@
                 user
             </div>
 
-            <div id="computer-label" class="badge">
+            <div id="comp-label" class="badge">
                 comp
             </div>
-            
             <span id="user-score">0</span>:<span id="computer-score">0</span>
         </div>
 
         <div class="result">
-            <h2>Paper covers rock. You win!</h2>
+            <h2>Play the game</h2>
         </div>
-        
 
         <div id="choices">
-            <div class="choice" id="p">
-                <img src="images/rock.png" alt="">
-            </div>
-
             <div class="choice" id="r">
-                <img src="images/paper.png" alt="">
-
+                <img src="images/rock.png" alt="rock image">
             </div>
-
+            <div class="choice" id="p">
+                <img src="images/paper.png" alt="">
+            </div>
             <div class="choice" id="s">
                 <img src="images/scissors.png" alt="">
             </div>
-
-
         </div>
-        
-        <h3 id="action-message">Make your move</h3>
-        
 
+        <h3 id="action-message">Make your move!</h3>
     </body>
 </html>
