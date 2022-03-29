@@ -10,6 +10,7 @@ const paper_div = document.getElementById("p")
 const scissors_div = document.getElementById("s")
 
 
+
 // convert choice char into string
 function charToWord(word){
     if (word === "r"){
@@ -24,15 +25,31 @@ function charToWord(word){
 function win(userChoice, compChoice){
     userScore++
     userScore_span.innerHTML = userScore
-    result_div.innerHTML = `${charToWord(userChoice)} vence ${charToWord(compChoice)}`
+    result_div.innerHTML = `User: ${charToWord(userChoice)} beats Comp: ${charToWord(compChoice)}`
+    const userChoice_div = document.getElementById(userChoice)
+    userChoice_div.classList.add("green-glow")
+    setTimeout(()=> {
+        userChoice_div.classList.remove("green-glow")
+    }, 300)
 }
-function lose(){
+function lose(userChoice, compChoice){
     compScore++
     compScore_span.innerHTML = compScore
-    result_div.innerHTML = `${charToWord(compChoice)} vence ${charToWord(userChoice)}`
+    result_div.innerHTML = `User: ${charToWord(userChoice)} loses to Comp: ${charToWord(compChoice)}`
+    const userChoise_div = document.getElementById(userChoice)
+    userChoise_div.classList.add("red-glow")
+    setTimeout(()=>{
+        userChoise_div.classList.remove("red-glow")
+    }, 300)
+    
 }
-function draw(){
-    result_div.innerHTML = "Empate"
+function draw(userChoice){
+    result_div.innerHTML = "Draw"
+    const userChoice_div = document.getElementById(userChoice)
+    userChoice_div.classList.add("gray-glow")
+    setTimeout(()=>{
+        userChoice_div.classList.remove("gray-glow")
+    }, 300)
 }
 
 function game(userChoice){
@@ -44,6 +61,7 @@ function game(userChoice){
         case "sp":
         case "pr":
             win(userChoice, compChoice)
+            console.log("venceu")
             break
         case "sr":
         case "ps":
@@ -53,7 +71,8 @@ function game(userChoice){
         case "rr":
         case "pp":
         case "ss":
-            draw()
+            draw(userChoice)
+            break
             
     }
 }
