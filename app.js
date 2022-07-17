@@ -1,4 +1,5 @@
 // score variables creation
+//teste
 let userScore = 0;
 let compScore = 0;
 //DOM variables
